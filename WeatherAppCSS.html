@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/weather.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>My weather application</title>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header>
+        <form>
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            required
+            class="enter-city"
+          />
+          <input type="submit" value="Search" class="button" />
+        </form>
+      </header>
+      <main>
+        <div class="current-weather">
+          <div>
+            <h1 class="your-city">Tampa</h1>
+            <p class="weather-deets">
+              Saturday 9:32, moderate rain <br />
+              Humidity: <strong>80%</strong>, Wind: <strong>8mph</strong>
+            </p>
+          </div>
+          <div class="temperature">
+            <span class="temperature-icon">☀️</span>
+            <span class="temperature-value">77</span
+            ><span class="temperature-degree">°F</span>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>
+          Coded by
+          <a
+            href="https://www.shecodes.io/users/45143-nyolie-saint-phard"
+            target="_blank"
+            >Nyolie Saint-Phard</a
+          >
+        </p>
+      </footer>
+    </div>
+    <script src="src/weather.js"></script>
+  </body>
+</html>
