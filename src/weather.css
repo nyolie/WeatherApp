@@ -55,7 +55,7 @@ h1 {
   color: rgb(238, 96, 153);
 }
 .temperature {
-  font-size: 48px;
+  display: flex;
 }
 
 .temperature-value {
@@ -63,13 +63,10 @@ h1 {
   font-weight: bold;
 }
 .temperature-degree {
+  margin-top: 6px;
   font-size: 28px;
-  position: relative;
-  top: -38px;
 }
 .icon {
   width: 88px;
   height: 88px;
-  position: relative;
-  display: block;
 }
