@@ -56,7 +56,6 @@ h1 {
 }
 .temperature {
   font-size: 48px;
-  display: flex;
 }
 
 .temperature-value {
@@ -71,4 +70,5 @@ h1 {
 .icon {
   width: 88px;
   height: 88px;
+  display: flex;
 }
