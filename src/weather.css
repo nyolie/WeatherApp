@@ -57,12 +57,7 @@ h1 {
 .temperature {
   font-size: 48px;
 }
-.temperature-icon {
-  position: relative;
-  top: -8px;
-  font-size: 40px;
-  margin-right: 10px;
-}
+
 .temperature-value {
   font-size: 80px;
   font-weight: bold;
@@ -71,4 +66,8 @@ h1 {
   font-size: 28px;
   position: relative;
   top: -38px;
+}
+.weather-app-icon {
+  width: 88px;
+  height: 88px;
 }
