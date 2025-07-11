@@ -70,5 +70,6 @@ h1 {
 .icon {
   width: 88px;
   height: 88px;
-  display: flex;
+  position: relative;
+  display: block;
 }
