@@ -1,3 +1,24 @@
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let temperature = response.data.temperature.current;
+  let yourCityElement = document.querySelector("#your-city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeedElement = document.querySelector("#wind-speed");
+  let timeElement = document.querySelector("#time");
+  let date = new Date(response.data.time * 1000);
+  let iconElement = document.querySelector("#icon");
+
+  timeElement.innerHTML = formatDate(date);
+  yourCityElement.innerHTML = response.data.city;
+  temperatureElement.innerHTML = temperature;
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windSpeedElement.innerHTML = `${response.data.wind.speed}mph`;
+  temperatureElement.innerHTML = Math.round(temperature);
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+}
+
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -18,37 +39,19 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
-
-function search(event) {
-  event.preventDefault();
+function searchCity(city) {
   let apiKey = "a6ao5dab2743f4304bbcd06edecf3td9";
-  let enterCityElement = document.querySelector("#enter-city");
-  let city = enterCityElement.value;
-
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-
   axios.get(apiUrl).then(displayTemperature);
 }
+function handleSearchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#enter-city");
 
-let cityForm = document.querySelector("#city-form");
-cityForm.addEventListener("submit", search);
-function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#temperature");
-  let temperature = Math.round(response.data.temperature.current);
-  let yourCityElement = document.querySelector("#your-city");
-  let descriptionElement = document.querySelector("#description");
-  let humidityElement = document.querySelector("#humidity");
-  let windSpeedElement = document.querySelector("#wind-speed");
-  let iconElement = document.querySelector("#icon");
-  yourCityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = temperature;
-  descriptionElement.innerHTML = response.data.condition.description;
-  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-  windSpeedElement.innerHTML = `${response.data.wind.speed}mph`;
-  temperatureElement.innerHTML = Math.round(temperature);
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
-  let date = new Date($response.data.time * 1000);
-  let timeElement = document.querySelector("#time");
-
-  timeElement.innerHTML = formatDate(date);
+  enterCity(searchInput.value);
 }
+
+let cityFormElement = document.querySelector("#city-form");
+cityFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Tampa");
