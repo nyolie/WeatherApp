@@ -24,7 +24,7 @@ function search(event) {
 
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
-  axios.get(apiUrl).then(refreshWeather);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 let cityForm = document.querySelector("#city-form");
