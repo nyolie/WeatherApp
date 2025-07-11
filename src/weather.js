@@ -1,20 +1,23 @@
-let now = new Date();
-let currentDate = document.querySelector("#current-date");
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
 
-currentDate.innerHTML = `${day}, ${hours}:${minutes}`;
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${day} ${hours}:${minutes}`;
+}
 
 function search(event) {
   event.preventDefault();
@@ -44,4 +47,8 @@ function displayTemperature(response) {
   windSpeedElement.innerHTML = `${response.data.wind.speed}mph`;
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+  let date = new Date($response.data.time * 1000);
+  let timeElement = document.querySelector("#time");
+
+  timeElement.innerHTML = formatDate(date);
 }
