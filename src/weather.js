@@ -22,8 +22,8 @@ function displayTemperature(response) {
 }
 
 function formatDate(date) {
-  let minutes = date.getMinutes();
-  let hours = date.getHours();
+  let minutes = now.getMinutes();
+  let hours = now.getHours();
   let days = [
     "Sunday",
     "Monday",
