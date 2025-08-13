@@ -96,4 +96,3 @@ let cityFormElement = document.querySelector("#city-form");
 cityFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Tampa");
-displayForecast();
