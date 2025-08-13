@@ -17,6 +17,7 @@ function displayTemperature(response) {
   windSpeedElement.innerHTML = `${response.data.wind.speed}mph`;
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -96,4 +97,3 @@ let cityFormElement = document.querySelector("#city-form");
 cityFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Tampa");
-getForecast();
